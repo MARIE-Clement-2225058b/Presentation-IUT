@@ -11,6 +11,8 @@
     width: 97%; /* Définit la largeur de l'iframe */
     float: left;
     margin-right: 20px; /* Ajoute un espace à droite du rectangle */
+    clear: both; /* Empêche les éléments flottants de se superposer */
+    text-align: center;
 }
 
 span {
@@ -18,24 +20,29 @@ span {
     text-align: center; /* Centre le texte dans le span */
 }
 
-#text {
-    width: 100%;
+#content {
     display: flex;
+    justify-content: center;
 }
 
-#text > div {
-    width: 50%;
+#map {
+    width: 100%; /* Définit la largeur de l'iframe */
+    flex: 1;
 }
 
-#logement {
+#text {
+    flex: 1;
+    column-span: all;
+    width: 100%; /* Définit la largeur de l'iframe */
     float: right;
-    margin-right: 10px;
+    margin-left: 20px; /* Ajoute un espace à gauche du rectangle */
+    text-align: justify;
+    justify-content: center;
 }
 
-#tarifs {
-    float: left;
-    margin-right: 10px;
-
+#carte {
+    width: 100%; /* Définit la largeur de l'iframe */
+    height: 700px; /* Définit la hauteur de l'iframe */
 }
 
 .svelte-9iziq1 {
@@ -48,11 +55,6 @@ li{
     margin-left: 10px;
 }
 
-#payement {
-    float: right;
-    margin-right: 10px;
-
-}
 
 body {
     column-count: 2; /* Divise le contenu en trois colonnes */
@@ -70,21 +72,6 @@ p, li {
 
 #loyalty-points {
     column-span: all;
-}
-
-#limitees {
-    column-span: all;
-    margin-right: 10px;
-
-}
-
-#titrerest {
-    order: -1;
-}
-
-.titles-container {
-    display: flex;
-    flex-direction: column;
 }
 
 #header {
@@ -116,7 +103,6 @@ h1 {
 }
 
 
-
 .tabl {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -131,10 +117,14 @@ h1 {
 }
 
 #footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    font-size: 30px;
     margin-top: 20px;
+    background-color: #3c6eff;
+    column-span: all;
+    padding: 10px;
+    border-radius: 10px;
+
 }
 
 #charlie{
