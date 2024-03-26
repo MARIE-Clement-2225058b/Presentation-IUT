@@ -136,3 +136,17 @@ h1 {
     align-items: center;
     margin-top: 20px;
 }
+
+#charlie{
+    background-color: #3c6eff;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+h2 {
+    color: #3c6eff; /* Couleur du texte */
+    text-align: center; /* Centrage du texte */
+    font-size: 19px; /* Taille de la police */
+    padding: 10px; /* Espacement autour du texte */
+}
