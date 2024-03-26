@@ -81,3 +81,36 @@ p, li {
 #titrerest {
     order: -1;
 }
+
+.titles-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+#maison {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo {
+    justify-content: center;
+
+    transform: scale(0.5);
+}
+
+#header1{
+    justify-content: center;
+    align-items: center;
+
+}

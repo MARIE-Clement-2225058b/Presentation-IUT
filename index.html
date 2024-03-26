@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Interactive Map</title>
+    <title>Le Guide Ultime des Avantages Étudiants</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" href="index.png" type="image/png">
+
     <style>
         /* Set the size of the div element that contains the map */
         #map {
@@ -14,8 +16,28 @@
     </style>
 </head>
 <body><!--The div element for the map -->
+
+
 <div>
-<div id="map"></div>
+    <div id="header">
+        <div id="header1">
+            <img id="logo" src="DIRCOM-logo_iut.png">
+            <h1>Le Guide Ultime des Avantages Étudiants : Découvrez Comment Tirer le Meilleur Parti de Votre Statut!</h1>
+        </div>
+        <p id="maison">Le statut d’étudiant offre plein d’opportunités d’activités ou d’économies, les connaissez-vous toutes ?</p>
+        <p id="maison">Par Clément Marie, Gabriel Rouge,Maxime Tamarin</p>
+        <p>Peu connaissent tous les avantages dont ils ont droit ; cet article relate tout ce qu’il nous faut savoir pour vivre comme un étudiant épanoui, qu’importe la taille de votre porte-monnaie. 
+            Le statut d’étudiant s’accompagne de nombreux avantages qui nous aident autant dans la vie quotidienne que dans le divertissement. Tantôt, les sociétés proposent des avantages aux étudiants, tantôt l’université a des partenariats avec les entreprises locales, tantôt l’université nous propose des services qui nous sont propres.
+            Découvrez dans cet article une carte montrant tous les points d’intérêts dans la zone autour de votre établissement, puis une explication détaillée de tout ce que votre statut vous octroie ; réductions, gratuités, et tous les autres avantages. Après cette lecture, vous aurez appris tout ce qu’il vous manque pour saisir toutes les opportunités d’un étudiant à Aix-Marseille Université.
+        </p>
+    </div>
+    <div class="titles-container">
+        <h2>Les points incontournables pour une vie étudiante réussie</h2>
+        <h2>Se restaurer</h2>
+    </div>
+<div id="map">
+
+</div>
 
 <div id="legend">
     <h2>Legend</h2>
@@ -146,8 +168,6 @@
     initMap();
 </script>
 <div id="text">
-
-<div id="titrerest"><h2>Se restaurer</h2></div>
 <div id="tarifs">
 <h3>Les tarifs</h3>
 
@@ -175,6 +195,7 @@ Pour pouvoir payer votre repas à la cafétéria ou dans les restaurants univers
     </div>
 </div>
 
+
 <div id="logement">
 
     <h2>Se loger</h2>
@@ -192,7 +213,14 @@ Pour pouvoir payer votre repas à la cafétéria ou dans les restaurants univers
         <li>La régions</li>
 </div>
 </div>
-
 </div>
+
+<div id="suite">
+    <div>
+        <h2>Réduire au maximum ses dépenses dans la vie quotidienne</h2>
+
+    </div>
+</div>
+
 </body>
 </html>
