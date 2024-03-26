@@ -3,222 +3,351 @@
 <head>
     <meta charset="utf-8">
     <title>Le Guide Ultime des Avantages Étudiants</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="icon" href="index.png" type="image/png">
 
     <style>
         /* Set the size of the div element that contains the map */
         #map {
-            height: 400px;  /* The height is 400 pixels */
-            width: 100%;  /* The width is the width of the web page */
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
         }
     </style>
 </head>
 <body><!--The div element for the map -->
 
 
-<div>
+<div id="debut">
     <div id="header">
         <div id="header1">
             <img id="logo" src="DIRCOM-logo_iut.png">
-            <h1>Le Guide Ultime des Avantages Étudiants : Découvrez Comment Tirer le Meilleur Parti de Votre Statut!</h1>
+            <h1>Le Guide Ultime des Avantages Étudiants : Découvrez Comment Tirer le Meilleur Parti de Votre
+                Statut!</h1>
         </div>
-        <p id="maison">Le statut d’étudiant offre plein d’opportunités d’activités ou d’économies, les connaissez-vous toutes ?</p>
+        <p id="maison">Le statut d’étudiant offre plein d’opportunités d’activités ou d’économies, les connaissez-vous
+            toutes ?</p>
         <p id="maison">Par Clément Marie, Gabriel Rouge,Maxime Tamarin</p>
-        <p>Peu connaissent tous les avantages dont ils ont droit ; cet article relate tout ce qu’il nous faut savoir pour vivre comme un étudiant épanoui, qu’importe la taille de votre porte-monnaie. 
-            Le statut d’étudiant s’accompagne de nombreux avantages qui nous aident autant dans la vie quotidienne que dans le divertissement. Tantôt, les sociétés proposent des avantages aux étudiants, tantôt l’université a des partenariats avec les entreprises locales, tantôt l’université nous propose des services qui nous sont propres.
-            Découvrez dans cet article une carte montrant tous les points d’intérêts dans la zone autour de votre établissement, puis une explication détaillée de tout ce que votre statut vous octroie ; réductions, gratuités, et tous les autres avantages. Après cette lecture, vous aurez appris tout ce qu’il vous manque pour saisir toutes les opportunités d’un étudiant à Aix-Marseille Université.
+        <p>Peu connaissent tous les avantages dont ils ont droit ; cet article relate tout ce qu’il nous faut savoir
+            pour vivre comme un étudiant épanoui, qu’importe la taille de votre porte-monnaie. 
+            Le statut d’étudiant s’accompagne de nombreux avantages qui nous aident autant dans la vie quotidienne que
+            dans le divertissement. Tantôt, les sociétés proposent des avantages aux étudiants, tantôt l’université a
+            des partenariats avec les entreprises locales, tantôt l’université nous propose des services qui nous sont
+            propres.
+            Découvrez dans cet article une carte montrant tous les points d’intérêts dans la zone autour de votre
+            établissement, puis une explication détaillée de tout ce que votre statut vous octroie ; réductions,
+            gratuités, et tous les autres avantages. Après cette lecture, vous aurez appris tout ce qu’il vous manque
+            pour saisir toutes les opportunités d’un étudiant à Aix-Marseille Université.
         </p>
     </div>
     <div class="titles-container">
         <h2>Les points incontournables pour une vie étudiante réussie</h2>
         <h2>Se restaurer</h2>
     </div>
-<div id="map">
+    <div id="map">
 
-</div>
+    </div>
 
-<div id="legend">
-    <h2>Legend</h2>
-    <span><img src="epinglerouge.png" alt="image" width="30" height="30"> Lieux important</span>
-    <span><img src="epinglevert.png" alt="image" width="30" height="30"> Iut</span>
-    <span><img src="epinglebleu.png" alt="image" width="30" height="30"> Restaurant et Cafétéria</span>
-    <span><img src="enregistrement.png" alt="image" width="30" height="30"> Cite et résidence universitaire</span>
-</div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-    // Initialize and add the map
-    function initMap() {
-        // The map, centered at Aix-en-Provence
-        const map = L.map('map').setView([43.51626, 5.449455], 15);
-        // The tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
+    <div id="legend">
+        <h2>Legend</h2>
+        <span><img src="epinglerouge.png" alt="image" width="30" height="30"> Lieux important</span>
+        <span><img src="epinglevert.png" alt="image" width="30" height="30"> Iut</span>
+        <span><img src="epinglebleu.png" alt="image" width="30" height="30"> Restaurant et Cafétéria</span>
+        <span><img src="enregistrement.png" alt="image" width="30" height="30"> Cite et résidence universitaire</span>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The map, centered at Aix-en-Provence
+            const map = L.map('map').setView([43.51626, 5.449455], 15);
+            // The tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(map);
 
-        // Points of interest
-        const pointsOfInterest = [
-            { name: 'Bibliothèque des Fenouillères', coords: [43.513977, 5.448128] },
-            { name: 'Bibliothèque', coords: [43.514554, 5.451676] },
-            { name: 'Restaurant et Cafétéria Universitaire Les Fenouillères', coords: [43.513808, 5.448599] },
-            { name: 'Restaurant et Cafétéria Universitaire Nord', coords: [43.519126, 5.447585] },
-            { name: 'Cafétéria Universitaire', coords: [43.516566, 5.448448] },
-            { name: 'Cafétéria Universitaire', coords: [43.514549, 5.451943] },
-            { name: 'La Crouzzéria', coords: [43.517936, 5.450567] },
-            { name: 'Restaurant Universitaire les Gazelles', coords: [43.517827, 5.450202] },
-            { name: 'Centre Sportif Universitaire (CSU)', coords: [43.517646, 5.452442] },
-            { name: 'Le Cube', coords: [43.515414, 5.447136] },
-            { name: 'Théâtre Les Gazelles', coords: [43.518499, 5.451833] },
-            { name: 'Parking Aix-en-Provence Krypton - EFFIA', coords: [43.510866, 5.447871] },
-            { name: 'Bibliothèque universitaire Schuman Droit', coords: [43.519764, 5.447298] },
-            { name: 'IUT d\'Aix-Marseille site d\'Aix-en-Provence', coords: [43.513771, 5.451199] },
+            // Points of interest
+            const pointsOfInterest = [
+                {name: 'Bibliothèque des Fenouillères', coords: [43.513977, 5.448128]},
+                {name: 'Bibliothèque', coords: [43.514554, 5.451676]},
+                {name: 'Restaurant et Cafétéria Universitaire Les Fenouillères', coords: [43.513808, 5.448599]},
+                {name: 'Restaurant et Cafétéria Universitaire Nord', coords: [43.519126, 5.447585]},
+                {name: 'Cafétéria Universitaire', coords: [43.516566, 5.448448]},
+                {name: 'Cafétéria Universitaire', coords: [43.514549, 5.451943]},
+                {name: 'La Crouzzéria', coords: [43.517936, 5.450567]},
+                {name: 'Restaurant Universitaire les Gazelles', coords: [43.517827, 5.450202]},
+                {name: 'Centre Sportif Universitaire (CSU)', coords: [43.517646, 5.452442]},
+                {name: 'Le Cube', coords: [43.515414, 5.447136]},
+                {name: 'Théâtre Les Gazelles', coords: [43.518499, 5.451833]},
+                {name: 'Parking Aix-en-Provence Krypton - EFFIA', coords: [43.510866, 5.447871]},
+                {name: 'Bibliothèque universitaire Schuman Droit', coords: [43.519764, 5.447298]},
+                {name: 'IUT d\'Aix-Marseille site d\'Aix-en-Provence', coords: [43.513771, 5.451199]},
 
-        ];
+            ];
 
-        // Circles
-        const circles = [
-            { name: 'Cite Universitaire de Cuques', coords: [43.516659, 5.455784], color: 'red', fillColor: '#f03', radius: 250 },
-            { name: 'Cite Universitaire les Gazelles', coords: [43.5183, 5.45072], color: 'red', fillColor: '#f03', radius: 100 },
-            { name: 'Cite Universitaire Arc de Meyran', coords: [43.512681, 5.453594], color: 'red', fillColor: '#f03', radius: 70 },
-            { name: 'Residence Universitaire les Fenouillères', coords: [43.51375, 5.449682], color: 'red', fillColor: '#f03', radius: 50 }
-        ];
-
-        // Function to add points to the map
-        function addPoints() {
-            const redIcon = L.icon({
-                iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-            });
-
-            pointsOfInterest.forEach(point => {
-                let icon = redIcon; // Default to red icon
-                if (point.name === "IUT d\'Aix-Marseille site d\'Aix-en-Provence") {
-                    icon = L.icon({
-                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
+            // Circles
+            const circles = [
+                {
+                    name: 'Cite Universitaire de Cuques',
+                    coords: [43.516659, 5.455784],
+                    color: 'red',
+                    fillColor: '#f03',
+                    radius: 250
+                },
+                {
+                    name: 'Cite Universitaire les Gazelles',
+                    coords: [43.5183, 5.45072],
+                    color: 'red',
+                    fillColor: '#f03',
+                    radius: 100
+                },
+                {
+                    name: 'Cite Universitaire Arc de Meyran',
+                    coords: [43.512681, 5.453594],
+                    color: 'red',
+                    fillColor: '#f03',
+                    radius: 70
+                },
+                {
+                    name: 'Residence Universitaire les Fenouillères',
+                    coords: [43.51375, 5.449682],
+                    color: 'red',
+                    fillColor: '#f03',
+                    radius: 50
                 }
-                if (point.name === "La Crouzzéria" ||point.name === "Restaurant et Cafétéria Universitaire Les Fenouillères" || point.name === "Restaurant et Cafétéria Universitaire Nord" || point.name === "Cafétéria Universitaire" || point.name === "Restaurant Universitaire les Gazelles" ){
-                    icon = L.icon({
-                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
-                }
+            ];
 
-                const marker = L.marker(point.coords, { icon: icon }).addTo(map)
-                    .bindPopup(point.name)
-                    .openPopup();
-            });
-        }
+            // Function to add points to the map
+            function addPoints() {
+                const redIcon = L.icon({
+                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                    shadowSize: [41, 41]
+                });
 
-        // Function to add circles to the map
-        function addCircles() {
-            circles.forEach(circle => {
-                // Store the circle layer in the circle object
-                circle.layer = L.circle(circle.coords, {
-                    color: circle.color,
-                    fillColor: circle.fillColor,
-                    fillOpacity: 0.5,
-                    radius: circle.radius
-                }).addTo(map).bindPopup(circle.name);
-            });
-        }
+                pointsOfInterest.forEach(point => {
+                    let icon = redIcon; // Default to red icon
+                    if (point.name === "IUT d\'Aix-Marseille site d\'Aix-en-Provence") {
+                        icon = L.icon({
+                            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowSize: [41, 41]
+                        });
+                    }
+                    if (point.name === "La Crouzzéria" || point.name === "Restaurant et Cafétéria Universitaire Les Fenouillères" || point.name === "Restaurant et Cafétéria Universitaire Nord" || point.name === "Cafétéria Universitaire" || point.name === "Restaurant Universitaire les Gazelles") {
+                        icon = L.icon({
+                            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowSize: [41, 41]
+                        });
+                    }
 
-        // Add points and circles to the map initially
-        addPoints();
-        addCircles();
+                    const marker = L.marker(point.coords, {icon: icon}).addTo(map)
+                        .bindPopup(point.name)
+                        .openPopup();
+                });
+            }
 
-        // Add event listeners to the buttons
-        document.getElementById('showPoints').addEventListener('click', function() {
-            map.eachLayer(function(layer) {
-                if (layer instanceof L.Marker) {
-                    map.removeLayer(layer);
-                }
-            });
-            addPoints(); // Only add the points back
-        });
+            // Function to add circles to the map
+            function addCircles() {
+                circles.forEach(circle => {
+                    // Store the circle layer in the circle object
+                    circle.layer = L.circle(circle.coords, {
+                        color: circle.color,
+                        fillColor: circle.fillColor,
+                        fillOpacity: 0.5,
+                        radius: circle.radius
+                    }).addTo(map).bindPopup(circle.name);
+                });
+            }
 
-        document.getElementById('showCircles').addEventListener('click', function() {
-            map.eachLayer(function(layer) {
-                if (layer instanceof L.Circle) {
-                    map.removeLayer(layer);
-                }
-            });
-            addCircles(); // Only add the circles back
-        });
-
-        document.getElementById('showAll').addEventListener('click', function() {
-            map.eachLayer(function(layer) {
-                map.removeLayer(layer);
-            });
+            // Add points and circles to the map initially
             addPoints();
             addCircles();
-        });
-    }
-    initMap();
-</script>
-<div id="text">
-<div id="tarifs">
-<h3>Les tarifs</h3>
 
-    <p>Concernant les tarifs cela vas dépendre de votre statut car :</p>
+            // Add event listeners to the buttons
+            document.getElementById('showPoints').addEventListener('click', function () {
+                map.eachLayer(function (layer) {
+                    if (layer instanceof L.Marker) {
+                        map.removeLayer(layer);
+                    }
+                });
+                addPoints(); // Only add the points back
+            });
 
-        <li>Si vous êtes étudiant sans bourse alors un repa au restaurant universitaire sera à 3,30€ </li>
-        <li>Si vous êtes étudiant avec bourse alors un repa au restaurant universitaire sera à 1€ </li>
+            document.getElementById('showCircles').addEventListener('click', function () {
+                map.eachLayer(function (layer) {
+                    if (layer instanceof L.Circle) {
+                        map.removeLayer(layer);
+                    }
+                });
+                addCircles(); // Only add the circles back
+            });
 
-        <p id="loyalty-points">Mais aussi lorsque vous payez certains articles dans les restaurants et cafétérias universitaires avec Izly, vous gagnez des points de fidélité qui permettent d’acheter des produits ou bien de payer un repas.</p>    </div>
-    <div id="payement">
-<h3>Mode de payement</h3>
-<p>
-Pour pouvoir payer votre repas à la cafétéria ou dans les restaurants universitaire, vous pouvez utiliser votre carte étudiante pour payer avec <a href="https://www.izly.fr/">izly</a> ou bien vous pouvez aussi payer en CB. Vous pouvez recharger votre carte étudiante dans les cafétérias ou les bibliothèques ou bien sur votre <a href="https://play.google.com/store/apps/details?id=fr.smoney.android.izly.REC&hl=fr&gl=US">application mobile izly</a>.
-</p>
+            document.getElementById('showAll').addEventListener('click', function () {
+                map.eachLayer(function (layer) {
+                    map.removeLayer(layer);
+                });
+                addPoints();
+                addCircles();
+            });
+        }
+
+        initMap();
+    </script>
+    <div id="text">
+        <div id="tarifs">
+            <h3>Les tarifs</h3>
+
+            <p>Concernant les tarifs cela vas dépendre de votre statut car :</p>
+
+            <li>Si vous êtes étudiant sans bourse alors un repa au restaurant universitaire sera à 3,30€</li>
+            <li>Si vous êtes étudiant avec bourse alors un repa au restaurant universitaire sera à 1€</li>
+
+            <p id="loyalty-points">Mais aussi lorsque vous payez certains articles dans les restaurants et cafétérias
+                universitaires avec Izly, vous gagnez des points de fidélité qui permettent d’acheter des produits ou
+                bien de payer un repas.</p></div>
+        <div id="payement">
+            <h3>Mode de payement</h3>
+            <p>
+                Pour pouvoir payer votre repas à la cafétéria ou dans les restaurants universitaire, vous pouvez
+                utiliser votre carte étudiante pour payer avec <a href="https://www.izly.fr/">izly</a> ou bien vous
+                pouvez aussi payer en CB. Vous pouvez recharger votre carte étudiante dans les cafétérias ou les
+                bibliothèques ou bien sur votre <a
+                    href="https://play.google.com/store/apps/details?id=fr.smoney.android.izly.REC&hl=fr&gl=US">application
+                mobile izly</a>.
+            </p>
+        </div>
+        <div id="limitees">
+            <h3>Les éditions limitées</h3>
+            <p>Pendant certaine période de l’année, les chefs des restaurants universitaires inventent des recettes
+                originales pour proposer aux étudiants des sandwiches et des salades thématiques, en "<a
+                        href="https://www.crous-aix-marseille.fr/se-restaurer/quest-ce-quon-mange/editions-limitees-des-plats-originaux-et-differents-chaque-mois-dans-les-restos-u/">éditions
+                    limitées</a>”.</p>
+        </div>
+        <div id="crous">
+            <h3>Crous & Go'</h3>
+            <p>
+                Crous & Go' vous permettra de commander votre repas en ligne et de le récupérer dans les restaurants
+                universitaires. Pour cela rendez-vous sur <a href="https://crousngo.crous-aix-marseille.fr/">https://crousngo.crous-aix-marseille.fr/</a>
+                pour commander votre repas.
+            </p>
+        </div>
     </div>
-    <div id="limitees">
-<h3>Les éditions limitées</h3>
-    <p>Pendant certaine période de l’année, les chefs des restaurants universitaires inventent des recettes originales pour proposer aux étudiants des sandwiches et des salades thématiques, en "<a href="https://www.crous-aix-marseille.fr/se-restaurer/quest-ce-quon-mange/editions-limitees-des-plats-originaux-et-differents-chaque-mois-dans-les-restos-u/">éditions limitées</a>”.</p>
+
+
+    <div id="logement">
+
+        <h2>Se loger</h2>
+        <iframe title="Carte des logements accessibles"
+                src="https://admin-v2.crous-mobile.fr/map/index.html?service=1&amp;service=2&amp;service=3&amp;service=4&amp;service=5&amp;service=6"
+                class="svelte-9iziq1"></iframe>
+
+        <p>Vous pouvez aussi aller sur <a href="https://trouverunlogement.lescrous.fr">https://trouverunlogement.lescrous.fr</a>
+            pour trouver, selon vos critères, le logement qui vous conviendra.</p>
+        <div id="aide">
+            <h3>Besoin d’aide pour payer ?</h3>
+            <p>Pour vous aider à payer le loyer ou la caution de votre logement étudiant, il existe différentes aides
+                financières. Tous ces dispositifs sont néanmoins soumis à <a
+                        href="https://www.crous-aix-marseille.fr/bourses-et-aides-financieres/ai-je-droit-a-dautres-aides/loyer-caution-locative-differentes-aides-financieres-possibles/">condition</a>.
+            </p>
+            <p>Vous pouvez bénéficier des aides de : </p>
+            <li>la CAF</li>
+            <li>Mobili-Jeunes pour les étudiants alternants</li>
+            <li>Visale et Avance Loca-Pass, pour une caution locative facilitée</li>
+            <li>La régions</li>
+        </div>
     </div>
-    <div id="crous">
-        <h3>Crous & Go'</h3>
-<p>
-    Crous & Go' vous permettra de commander votre repas en ligne et de le récupérer dans les restaurants universitaires. Pour cela rendez-vous sur <a href="https://crousngo.crous-aix-marseille.fr/">https://crousngo.crous-aix-marseille.fr/</a> pour commander votre repas.
-</p>
-    </div>
-</div>
-
-
-<div id="logement">
-
-    <h2>Se loger</h2>
-    <iframe title="Carte des logements accessibles" src="https://admin-v2.crous-mobile.fr/map/index.html?service=1&amp;service=2&amp;service=3&amp;service=4&amp;service=5&amp;service=6" class="svelte-9iziq1"></iframe>
-
-    <p>Vous pouvez aussi aller sur <a href="https://trouverunlogement.lescrous.fr">https://trouverunlogement.lescrous.fr</a> pour trouver, selon vos critères, le logement qui vous conviendra.</p>
-<div id="aide">
-    <h3>Besoin d’aide  pour payer ?</h3>
-    <p>Pour vous aider à payer le loyer ou la caution de votre logement étudiant, il existe différentes aides financières. Tous ces dispositifs sont néanmoins soumis à <a href="https://www.crous-aix-marseille.fr/bourses-et-aides-financieres/ai-je-droit-a-dautres-aides/loyer-caution-locative-differentes-aides-financieres-possibles/">condition</a>.
-    </p>
-    <p>Vous pouvez bénéficier des aides de : </p>
-        <li>la CAF</li>
-        <li>Mobili-Jeunes pour les étudiants alternants</li>
-        <li>Visale et Avance Loca-Pass, pour une caution locative facilitée</li>
-        <li>La régions</li>
-</div>
-</div>
 </div>
 
 <div id="suite">
-    <div>
-        <h2>Réduire au maximum ses dépenses dans la vie quotidienne</h2>
 
+    <h2>Réduire au maximum ses dépenses dans la vie quotidienne</h2>
+    <p>La vie quotidienne estudiantine s’accompagne pour beaucoup de défis financiers. Or, nous avons la chance d’avoir
+        dans notre université un nombre important d’avantages qui rendent la vie plus facile. Voici tout ce qu’il y a à
+        savoir pour dégoter toutes les ristournes possibles, ainsi que plusieurs astuces d’étudiants.</p>
+    <div class="tabl">
+        <div id="avt">
+            <h3>Les avantages logiciels</h3>
+            <p>Parmis les nécessités onéreuses d’un étudiant, il y a les logiciels dont il a besoin, autant pour la
+                bureautique que pour des besoins plus spécifiques comme les environnements de développement pour les
+                informaticiens. L’université d’Aix Marseille nous permet ainsi d’obtenir gratuitement la suite Microsoft
+                Office. D’autres logiciels ou abonnements deviennent gratuits pour les étudiants grâce à notre statut
+                particulier, comme la suite JetBrains qui propose des logiciels de très bonne qualité ou bien Github
+                Student qui donne l’accès à beaucoup d’avantages comme l’IA Copilot. Ces offres représentent une
+                économie significative, nous permettant d'accéder aux outils nécessaires pour nos travaux académiques et
+                professionnels sans frais supplémentaires.</p>
+        </div>
+
+        <div id="rest">
+            <h3>La restauration</h3>
+            <p>
+                La question de comment se restaurer est centrale dans la vie étudiante. En effet, souvent trop chères,
+                les restaurants universitaires sont bien souvent la solution à ce problème. Les étudiants de l’AMU
+                bénéficient d’un accès privilégié aux restaurants universitaires, nous offrant un repas équilibré à des
+                tarifs avantageux (3,30€ le menu, 1€ pour les boursier).
+            </p>
+        </div>
+
+        <div id="bib">
+            <h3>Les bibliothèques</h3>
+            <p>
+                La bibliothèque universitaire de l'AMU met à disposition une vaste collection de livres, revues et
+                ressources en ligne, ainsi que la possibilité d'emprunter des livres pour nos études. Un système de
+                réservation des salles permet à ceux qui souhaitent faire des travaux de groupe de travailler en toute
+                tranquillité au Cube ou à la bibliothèque universitaire. Si on souhaite avec une salle plus grande
+                notamment pour faire de la danse, du théâtre et toute autre activité qui demande de l'espace, une salle
+                au Crous des Gazelles met à disposition une salle que nous pouvons réserver également. 
+            </p>
+        </div>
+
+        <div id="transp">
+            <h3>Les transports</h3>
+            <p>
+                Pour ceux qui n'habitent pas à proximité de l’IUT, nous pouvons bénéficier d’une offre de la région PACA
+                nous permettant pour 90€ de voyager librement dans toute la région en TER et bus ZOU. Pour ceux
+                préférant la voiture au transport en commun, nous pouvons bénéficier de tarifs avantageux sur le
+                stationnement avec des réductions de 50% et des offres spéciales pour le parking Krypton à proximité de
+                l’IUT.
+            </p>
+        </div>
+
+        <div id="cine">
+            <h3>Le cinéma</h3>
+            <p>
+                Nous pouvons profiter de tarifs réduits au cinéma en présentant votre carte étudiante de l'AMU. De plus,
+                nous pouvons bénéficier de tarifs spéciaux sur les plateformes de streaming musical telles que Spotify,
+                Deezer et Apple Music, pour accompagner nos moments de détente avec nos chansons préférées et les
+                derniers films à la mode. Ces offres exclusives nous permettent de nous divertir à moindre coût tout en
+                étant étudiant à l'Université d'Aix-Marseille.
+            </p>
+        </div>
+
+        <div id="journ">
+            <h3>Journaux</h3>
+            <p>
+                Pour ceux cherchant à rester toujours informé de l’actualité, nous pouvons obtenir des abonnements à
+                prix réduit sur des journaux prestigieux tels que le Monde et Libération.
+            </p>
+        </div>
+
+    </div>
+
+    <div id="pact">
+        <h3>Pact’AMU</h3>
+        <p>
+            En tant qu'étudiants de l'AMU, nous ne devrions pas passer à côté des avantages exclusifs offerts par le
+            Pact AMU. Ce programme nous propose régulièrement des offres spéciales et des réductions sur une variété
+            de produits et services, adaptés à nos besoins d'étudiants. Restez à l'affût des promotions proposées
+            par le Pact AMU pour maximiser les avantages dont nous pouvons bénéficier en tant que membres de cette
+            communauté universitaire dynamique
+        </p>
     </div>
 </div>
 
