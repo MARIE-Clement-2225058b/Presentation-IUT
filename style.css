@@ -1,0 +1,83 @@
+* {
+    font-size: 15px; /* Définit la taille de la police */
+    font-family: Arial, sans-serif; /* Définit la police de caractères */
+    text-align: justify;
+}
+
+#legend {
+    border: 1px solid #000; /* Définit une bordure noire */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    background-color: #fff; /* Définit la couleur de fond du rectangle */
+    width: 97%; /* Définit la largeur de l'iframe */
+    float: left;
+    margin-right: 20px; /* Ajoute un espace à droite du rectangle */
+}
+
+span {
+    margin: 0 10px; /* Ajoute un espace de 10px à gauche et à droite de chaque span */
+    text-align: center; /* Centre le texte dans le span */
+}
+
+#text {
+    width: 100%;
+    display: flex;
+}
+
+#text > div {
+    width: 50%;
+}
+
+#logement {
+    float: right;
+    margin-right: 10px;
+}
+
+#tarifs {
+    float: left;
+    margin-right: 10px;
+
+}
+
+.svelte-9iziq1 {
+    width: 100%; /* Définit la largeur de l'iframe */
+    height: 700px; /* Définit la hauteur de l'iframe */
+}
+
+li{
+    margin-bottom: 10px; /* Ajoute un espace en bas de chaque élément de la liste */
+    margin-left: 10px;
+}
+
+#payement {
+    float: right;
+    margin-right: 10px;
+
+}
+
+body {
+    column-count: 2; /* Divise le contenu en trois colonnes */
+    column-gap: 40px; /* Définit l'espace entre les colonnes */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+}
+
+h1, h2, h3 {
+    column-span: all; /* Fait en sorte que les titres s'étendent sur toutes les colonnes */
+}
+
+p, li {
+    column-span: all;
+}
+
+#loyalty-points {
+    column-span: all;
+}
+
+#limitees {
+    column-span: all;
+    margin-right: 10px;
+
+}
+
+#titrerest {
+    order: -1;
+}

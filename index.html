@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;  /* The height is 400 pixels */
+            width: 100%;  /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body><!--The div element for the map -->
+<div>
+<div id="map"></div>
+
+<div id="legend">
+    <h2>Legend</h2>
+    <span><img src="epinglerouge.png" alt="image" width="30" height="30"> Lieux important</span>
+    <span><img src="epinglevert.png" alt="image" width="30" height="30"> Iut</span>
+    <span><img src="epinglebleu.png" alt="image" width="30" height="30"> Restaurant et Cafétéria</span>
+    <span><img src="enregistrement.png" alt="image" width="30" height="30"> Cite et résidence universitaire</span>
+</div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The map, centered at Aix-en-Provence
+        const map = L.map('map').setView([43.51626, 5.449455], 15);
+        // The tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Points of interest
+        const pointsOfInterest = [
+            { name: 'Bibliothèque des Fenouillères', coords: [43.513977, 5.448128] },
+            { name: 'Bibliothèque', coords: [43.514554, 5.451676] },
+            { name: 'Restaurant et Cafétéria Universitaire Les Fenouillères', coords: [43.513808, 5.448599] },
+            { name: 'Restaurant et Cafétéria Universitaire Nord', coords: [43.519126, 5.447585] },
+            { name: 'Cafétéria Universitaire', coords: [43.516566, 5.448448] },
+            { name: 'Cafétéria Universitaire', coords: [43.514549, 5.451943] },
+            { name: 'La Crouzzéria', coords: [43.517936, 5.450567] },
+            { name: 'Restaurant Universitaire les Gazelles', coords: [43.517827, 5.450202] },
+            { name: 'Centre Sportif Universitaire (CSU)', coords: [43.517646, 5.452442] },
+            { name: 'Le Cube', coords: [43.515414, 5.447136] },
+            { name: 'Théâtre Les Gazelles', coords: [43.518499, 5.451833] },
+            { name: 'Parking Aix-en-Provence Krypton - EFFIA', coords: [43.510866, 5.447871] },
+            { name: 'Bibliothèque universitaire Schuman Droit', coords: [43.519764, 5.447298] },
+            { name: 'IUT d\'Aix-Marseille site d\'Aix-en-Provence', coords: [43.513771, 5.451199] },
+
+        ];
+
+        // Circles
+        const circles = [
+            { name: 'Cite Universitaire de Cuques', coords: [43.516659, 5.455784], color: 'red', fillColor: '#f03', radius: 250 },
+            { name: 'Cite Universitaire les Gazelles', coords: [43.5183, 5.45072], color: 'red', fillColor: '#f03', radius: 100 },
+            { name: 'Cite Universitaire Arc de Meyran', coords: [43.512681, 5.453594], color: 'red', fillColor: '#f03', radius: 70 },
+            { name: 'Residence Universitaire les Fenouillères', coords: [43.51375, 5.449682], color: 'red', fillColor: '#f03', radius: 50 }
+        ];
+
+        // Function to add points to the map
+        function addPoints() {
+            const redIcon = L.icon({
+                iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+
+            pointsOfInterest.forEach(point => {
+                let icon = redIcon; // Default to red icon
+                if (point.name === "IUT d\'Aix-Marseille site d\'Aix-en-Provence") {
+                    icon = L.icon({
+                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    });
+                }
+                if (point.name === "La Crouzzéria" ||point.name === "Restaurant et Cafétéria Universitaire Les Fenouillères" || point.name === "Restaurant et Cafétéria Universitaire Nord" || point.name === "Cafétéria Universitaire" || point.name === "Restaurant Universitaire les Gazelles" ){
+                    icon = L.icon({
+                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    });
+                }
+
+                const marker = L.marker(point.coords, { icon: icon }).addTo(map)
+                    .bindPopup(point.name)
+                    .openPopup();
+            });
+        }
+
+        // Function to add circles to the map
+        function addCircles() {
+            circles.forEach(circle => {
+                // Store the circle layer in the circle object
+                circle.layer = L.circle(circle.coords, {
+                    color: circle.color,
+                    fillColor: circle.fillColor,
+                    fillOpacity: 0.5,
+                    radius: circle.radius
+                }).addTo(map).bindPopup(circle.name);
+            });
+        }
+
+        // Add points and circles to the map initially
+        addPoints();
+        addCircles();
+
+        // Add event listeners to the buttons
+        document.getElementById('showPoints').addEventListener('click', function() {
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+            addPoints(); // Only add the points back
+        });
+
+        document.getElementById('showCircles').addEventListener('click', function() {
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Circle) {
+                    map.removeLayer(layer);
+                }
+            });
+            addCircles(); // Only add the circles back
+        });
+
+        document.getElementById('showAll').addEventListener('click', function() {
+            map.eachLayer(function(layer) {
+                map.removeLayer(layer);
+            });
+            addPoints();
+            addCircles();
+        });
+    }
+    initMap();
+</script>
+<div id="text">
+
+<div id="titrerest"><h2>Se restaurer</h2></div>
+<div id="tarifs">
+<h3>Les tarifs</h3>
+
+    <p>Concernant les tarifs cela vas dépendre de votre statut car :</p>
+
+        <li>Si vous êtes étudiant sans bourse alors un repa au restaurant universitaire sera à 3,30€ </li>
+        <li>Si vous êtes étudiant avec bourse alors un repa au restaurant universitaire sera à 1€ </li>
+
+        <p id="loyalty-points">Mais aussi lorsque vous payez certains articles dans les restaurants et cafétérias universitaires avec Izly, vous gagnez des points de fidélité qui permettent d’acheter des produits ou bien de payer un repas.</p>    </div>
+    <div id="payement">
+<h3>Mode de payement</h3>
+<p>
+Pour pouvoir payer votre repas à la cafétéria ou dans les restaurants universitaire, vous pouvez utiliser votre carte étudiante pour payer avec <a href="https://www.izly.fr/">izly</a> ou bien vous pouvez aussi payer en CB. Vous pouvez recharger votre carte étudiante dans les cafétérias ou les bibliothèques ou bien sur votre <a href="https://play.google.com/store/apps/details?id=fr.smoney.android.izly.REC&hl=fr&gl=US">application mobile izly</a>.
+</p>
+    </div>
+    <div id="limitees">
+<h3>Les éditions limitées</h3>
+    <p>Pendant certaine période de l’année, les chefs des restaurants universitaires inventent des recettes originales pour proposer aux étudiants des sandwiches et des salades thématiques, en "<a href="https://www.crous-aix-marseille.fr/se-restaurer/quest-ce-quon-mange/editions-limitees-des-plats-originaux-et-differents-chaque-mois-dans-les-restos-u/">éditions limitées</a>”.</p>
+    </div>
+    <div id="crous">
+        <h3>Crous & Go'</h3>
+<p>
+    Crous & Go' vous permettra de commander votre repas en ligne et de le récupérer dans les restaurants universitaires. Pour cela rendez-vous sur <a href="https://crousngo.crous-aix-marseille.fr/">https://crousngo.crous-aix-marseille.fr/</a> pour commander votre repas.
+</p>
+    </div>
+</div>
+
+<div id="logement">
+
+    <h2>Se loger</h2>
+    <iframe title="Carte des logements accessibles" src="https://admin-v2.crous-mobile.fr/map/index.html?service=1&amp;service=2&amp;service=3&amp;service=4&amp;service=5&amp;service=6" class="svelte-9iziq1"></iframe>
+
+    <p>Vous pouvez aussi aller sur <a href="https://trouverunlogement.lescrous.fr">https://trouverunlogement.lescrous.fr</a> pour trouver, selon vos critères, le logement qui vous conviendra.</p>
+<div id="aide">
+    <h3>Besoin d’aide  pour payer ?</h3>
+    <p>Pour vous aider à payer le loyer ou la caution de votre logement étudiant, il existe différentes aides financières. Tous ces dispositifs sont néanmoins soumis à <a href="https://www.crous-aix-marseille.fr/bourses-et-aides-financieres/ai-je-droit-a-dautres-aides/loyer-caution-locative-differentes-aides-financieres-possibles/">condition</a>.
+    </p>
+    <p>Vous pouvez bénéficier des aides de : </p>
+        <li>la CAF</li>
+        <li>Mobili-Jeunes pour les étudiants alternants</li>
+        <li>Visale et Avance Loca-Pass, pour une caution locative facilitée</li>
+        <li>La régions</li>
+</div>
+</div>
+
+</div>
+</body>
+</html>
