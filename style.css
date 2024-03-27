@@ -132,6 +132,29 @@ h1 {
     align-items: center;
     gap: 5px;
     width: 100%;
+
+    border: 1px dashed black; /* Ajoute une bordure verte */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
+
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.tabl2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+
+    border: 1px dashed black; /* Ajoute une bordure verte */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
+
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 #aide{
@@ -165,6 +188,12 @@ h2 {
     text-align: center; /* Centrage du texte */
     font-size: 19px; /* Taille de la police */
     padding: 10px; /* Espacement autour du texte */
+
+}
+
+h3{
+    border-bottom: 1px solid black; /* Ajoute une bordure verte en bas */
+
 }
 
 #tableau {
@@ -174,4 +203,10 @@ h2 {
 
 div {
     clear: both;
+}
+
+#crous{
+    border: 1px dashed black; /* Ajoute une bordure verte */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
 }
