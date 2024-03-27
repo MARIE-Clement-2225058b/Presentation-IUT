@@ -15,6 +15,20 @@
     text-align: center;
 }
 
+#rowmer{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    display: grid;
+}
+
+#loge{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
 span {
     margin: 0 10px; /* Ajoute un espace de 10px à gauche et à droite de chaque span */
     text-align: center; /* Centre le texte dans le span */
@@ -26,7 +40,9 @@ span {
 }
 
 #map {
-    width: 100%; /* Définit la largeur de l'iframe */
+
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
     flex: 1;
 }
 
@@ -139,4 +155,18 @@ h2 {
     text-align: center; /* Centrage du texte */
     font-size: 19px; /* Taille de la police */
     padding: 10px; /* Espacement autour du texte */
+}
+
+#tableau {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#tab1{
+
+
+}
+
+#tab2{
+
 }
