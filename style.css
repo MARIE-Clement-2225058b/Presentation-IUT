@@ -13,6 +13,7 @@
     margin-right: 20px; /* Ajoute un espace à droite du rectangle */
     clear: both; /* Empêche les éléments flottants de se superposer */
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #rowmer{
@@ -160,13 +161,4 @@ h2 {
 #tableau {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-#tab1{
-
-
-}
-
-#tab2{
-
 }
