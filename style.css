@@ -53,8 +53,13 @@ span {
     width: 100%; /* Définit la largeur de l'iframe */
     float: right;
     margin-left: 20px; /* Ajoute un espace à gauche du rectangle */
+    margin-right: 20px;
     text-align: justify;
     justify-content: center;
+
+    border: 1px solid black; /* Ajoute une bordure verte */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
 }
 
 #carte {
@@ -119,7 +124,6 @@ h1 {
 
 }
 
-
 .tabl {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -131,6 +135,9 @@ h1 {
 
 #aide{
     color: green;
+    border: 1px solid green; /* Ajoute une bordure verte */
+    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
 }
 
 #footer {
