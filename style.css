@@ -107,7 +107,7 @@ h1 {
     font-size: 30px;
 }
 
-#maison {
+.maison {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,21 +141,6 @@ h1 {
     margin-right: 10px;
 }
 
-.tabl2 {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    align-items: center;
-    gap: 5px;
-    width: 100%;
-
-    border: 1px dashed black; /* Ajoute une bordure verte */
-    padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
-    border-radius: 10px; /* Arrondit les coins du rectangle */
-
-    margin-top: 10px;
-    margin-right: 10px;
-}
 
 #aide{
     color: green;
@@ -168,19 +153,21 @@ h1 {
     text-align: center;
     font-size: 30px;
     margin-top: 20px;
-    background-color: #3c6eff;
+
     column-span: all;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
+
+    border-bottom: 2px solid #3c6eff; /* Ajoute une bordure verte en bas */
+    border-top: 2px solid #3c6eff; /* Ajoute une bordure verte en bas */
+
 
 }
 
 #charlie{
-    background-color: #3c6eff;
     padding: 10px;
-    border-radius: 10px;
-    color: white;
+
+
+    border-bottom: 2px solid #3c6eff; /* Ajoute une bordure verte en bas */
+    border-top: 2px solid #3c6eff; /* Ajoute une bordure verte en bas */
 }
 
 h2 {
