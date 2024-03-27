@@ -7,6 +7,7 @@
 #legend {
     border: 1px solid #000; /* Définit une bordure noire */
     padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
+    border-radius: 10px; /* Arrondit les coins du rectangle */
     background-color: #fff; /* Définit la couleur de fond du rectangle */
     width: 97%; /* Définit la largeur de l'iframe */
     float: left;
@@ -57,7 +58,7 @@ span {
     text-align: justify;
     justify-content: center;
 
-    border: 1px solid black; /* Ajoute une bordure verte */
+    border: 1px dashed black; /* Ajoute une bordure verte */
     padding: 10px; /* Ajoute un espace à l'intérieur du rectangle */
     border-radius: 10px; /* Arrondit les coins du rectangle */
 }
